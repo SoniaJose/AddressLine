@@ -39,21 +39,21 @@ public class AddressSplitter<jsonObject> {
 					return jsonObject;
 
 				} else if (str.charAt(strchar + 1) >= '0' && str.charAt(strchar + 1) <= '9') {
-					String s1 = str.substring(strchar + 1);
-					String s2 = str.substring(0, strchar);
-					int count2 = s1.length();
-					if (count2 <= 4) {
+					String str1 = str.substring(strchar + 1);
+					String str2 = str.substring(0, strchar);
+					int strcount = str1.length();
+					if (strcount <= 4) {
 						jsonObject.put("housenumber", s1);
 						jsonObject.put("street", s2);
 
 						return jsonObject;
 					} else {
-						for (int strpart = 0; strpart < s1.length(); strpart++) {
-							if (s1.charAt(strpart + 3) == 'N' && s1.charAt(strpart + 4) == 'o') {
-								String s3 = s1.substring(0, strpart + 2);
-								String s4 = s2 + " " + s3;
-								jsonObject.put("housenumber", s1.substring(strpart + 3));
-								jsonObject.put("street", s4);
+						for (int strpart = 0; strpart < str1.length(); strpart++) {
+							if (str1.charAt(strpart + 3) == 'N' && str1.charAt(strpart + 4) == 'o') {
+								String str3 = str1.substring(0, strpart + 2);
+								String str4 = str2 + " " + str3;
+								jsonObject.put("housenumber", str1.substring(strpart + 3));
+								jsonObject.put("street", str4);
 
 								return jsonObject;
 
